@@ -1,17 +1,17 @@
 version: '3'
 services:
   php:
-    container_name: gg-php-fpm
+    container_name: blank-laravel10-php-fpm
     build:
       context: ./docker/php-fpm
       dockerfile: Dockerfile
     volumes:
-      - ./laravel:/var/www/html
+      - ./codebase:/var/www/html
       - ./docker/php-fpm/conf.d/user.ini:/usr/local/etc/php/conf.d/user.ini
     networks:
       - internal
   nginx:
-    container_name: gg-nginx
+    container_name: blank-laravel10-nginx
     build:
       context: ./docker/nginx
       dockerfile: Dockerfile
