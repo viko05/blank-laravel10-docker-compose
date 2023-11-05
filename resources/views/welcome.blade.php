@@ -137,4 +137,5 @@
     </div>
 </div>
 </body>
+@vite('resources/js/entry-a.js')
 </html>
