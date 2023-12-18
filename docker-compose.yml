@@ -20,6 +20,21 @@ services:
       - '8000:80'
     networks:
       - internal
+  db:
+      image: mariadb
+      container_name: "${DB_HOST}"
+      volumes:
+          - ./docker/mariadb:/var/lib/mysql:Z
+      environment:
+          MARIADB_ROOT_PASSWORD: "${DB_ROOT_PASSWORD}"
+          MARIADB_DATABASE: "${DB_DATABASE}"
+          MARIADB_USER: "${DB_USERNAME}"
+          MARIADB_PASSWORD: "${DB_PASSWORD}"
+      ports:
+          - '3306:3306'
+      networks:
+          - internal
+
 networks:
   internal:
     driver: bridge
