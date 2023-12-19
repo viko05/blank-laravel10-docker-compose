@@ -7,6 +7,7 @@ git \
 libzip-dev \
 unzip \
 && docker-php-ext-install zip \
+    pdo pdo_mysql mysqli \
 && rm -rf /var/lib/apt/lists/*
 
 RUN pecl install xdebug \
